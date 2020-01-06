@@ -30,6 +30,7 @@ public class Student {
 			int dobMonth, int dobDate) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.dateOfBirth.set(dobYear, dobMonth, dobDate);
 
 		// Aufgabe
 	}
@@ -55,17 +56,25 @@ public class Student {
 	}
 
 	public Set<Course> getAttendedCourses() {
-		// Aufgabe
-		return null;
+
+		return grades.keySet();
 	}
 
 	public void setGrade(Course course, double grade) {
-		// Aufgabe
+		grades.put(course, grade);
 	}
 
 	public double getAverageGrade() {
 		// Aufgabe
-		return -1.0;
+		if (grades.size() == 0) return 0.0;
+		double m = 0.0;
+
+		for (Course c : this.getAttendedCourses()) {
+			m += grades.get(c);
+		}
+
+		return m/grades.size();
+
 	}
 
 	@Override
