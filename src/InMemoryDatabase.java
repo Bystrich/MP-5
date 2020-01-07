@@ -13,12 +13,12 @@ public class InMemoryDatabase implements Database {
 
 	@Override
 	public void insertStudent(Student student) {
-		// Aufgabe
+		students.add(student);
 	}
 
 	@Override
 	public void insertStudents(List<Student> students) {
-		// Aufgabe
+		students.addAll(students);
 	}
 
 	@Override
