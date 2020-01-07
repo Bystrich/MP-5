@@ -24,25 +24,36 @@ public class InMemoryDatabase implements Database {
 	@Override
 	public int countStudents() {
 		// Aufgabe
-		return -1;
+		return students.size();
 	}
 
 	@Override
 	public List<Student> getStudents() {
-		// Aufgabe
-		return null;
+		List<Student> studentsOut = students;
+		return studentsOut;
 	}
 
 	@Override
 	public List<Student> getStudentsBornAfter(Calendar date) {
-		// Aufgabe
-		return null;
+		List<Student> studentsOut = new LinkedList<>();
+		 for (Student s : students) {
+		 	if (s.getDateOfBirth().compareTo(date) > 0) {
+		 		studentsOut.add(s);
+			}
+		 }
+		return studentsOut;
 	}
 
 	@Override
 	public List<Student> getGoodStudents(double gradeThreshold) {
 		// Aufgabe
-		return null;
+		List<Student> studentsOut = new LinkedList<>();
+		for (Student s : students) {
+			if (s.getAverageGrade() < gradeThreshold && s.getAverageGrade() != 0.0) {
+				studentsOut.add(s);
+			}
+		}
+		return studentsOut;
 	}
 
 	@Override
